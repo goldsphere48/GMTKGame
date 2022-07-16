@@ -15,6 +15,9 @@ namespace GMTKGame
         public DiceEdge ForwardEdge => GetEdgeByCondition((e) => e.Position.z, (e, max) => e > max);
         public DiceEdge BackwardEdge => GetEdgeByCondition((e) => e.Position.z, (e, max) => e < max);
 
+        //Remove on release
+        public Dictionary<Direction, int> DirectionsToNumber; 
+
         private DiceEdge GetEdgeByCondition(Func<DiceEdge, float> getPosition, Func<float, float, bool> condition)
         {
             DiceEdge edge = _edgesMap.Values.First();
@@ -38,6 +41,15 @@ namespace GMTKGame
             {
                 _edgesMap[edge.EdgeNumber] = edge;
             }
+
+            DirectionsToNumber = new Dictionary<Direction, int>
+            {
+                { Direction.Up, HighEdge.EdgeNumber },
+                { Direction.Backward, BackwardEdge.EdgeNumber },
+                { Direction.Forward, ForwardEdge.EdgeNumber },
+                { Direction.Left, LeftEdge.EdgeNumber },
+                { Direction.Right, RightEdge.EdgeNumber },
+            };
         }
 
         public Direction GetDirectionByNumber(int number)

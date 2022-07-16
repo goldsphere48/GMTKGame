@@ -35,7 +35,7 @@ namespace Assets.Source
                 OnJump();
         }
 
-        private void OnAlternativeInput(Direction direction)
+        private void OnAlternativeInput(Direction direction, int number)
         {
             if (direction == Direction.Up)
                 OnJump();

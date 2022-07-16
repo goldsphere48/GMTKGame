@@ -23,10 +23,10 @@ namespace GMTKGame
         {
             var direction = _playerPositionHandler.GetDirectionByNumber(number);
             if (direction != Direction.None)
-                OnRotateInDirection(direction);
+                OnRotateInDirection(direction, number);
         }
 
-        private void OnRotateInDirection(Direction direction)
+        private void OnRotateInDirection(Direction direction, int number)
         {
             if (_currentDirection == Direction.None && direction != Direction.Up)
             {

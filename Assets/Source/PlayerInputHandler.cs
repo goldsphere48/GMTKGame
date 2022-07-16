@@ -11,7 +11,8 @@ namespace GMTKGame
         private Dictionary<KeyCode, Direction> _keyDirections;
 
         public event Action<int> NumberPressed;
-        public event Action<Direction> KeyPressed;
+        public event Action<Direction, int> KeyPressed;
+        private PlayerPositionHandler _playerPositionHandler;
 
         private void Awake()
         {
@@ -33,6 +34,8 @@ namespace GMTKGame
                 { KeyCode.D, Direction.Right },
                 { KeyCode.Space, Direction.Up },
             };
+
+            _playerPositionHandler = GetComponent<PlayerPositionHandler>();
         }
 
         void Update()
@@ -41,7 +44,7 @@ namespace GMTKGame
             {
                 if (Input.GetKeyDown(keyDirection.Key))
                 {
-                    KeyPressed?.Invoke(keyDirection.Value);
+                    KeyPressed?.Invoke(keyDirection.Value, _playerPositionHandler.DirectionsToNumber[keyDirection.Value]);
                 }
             }
             foreach (var validKeyCode in _validKeyCodes)

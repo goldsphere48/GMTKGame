@@ -19,12 +19,13 @@ namespace Assets.Source
 
         private void OnMoved(int number)
         {
-            _movementSounds[number].Play();
+            _movementSounds[number - 1].Play();
         }
 
-        private void OnJumped()
+        private void OnJumped(int number)
         {
             _jumpSound.Play();
+            _movementSounds[number - 1].Play();
         }
 
         private void OnHitted()

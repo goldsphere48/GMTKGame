@@ -10,7 +10,7 @@ namespace GMTKGame
     internal class PlayerMovement : MonoBehaviour
     {
         public event Action<int> Moved;
-        public event Action Jumped;
+        public event Action<int> Jumped;
         public event Action Hitted;
 
         [SerializeField] private PlayerMovementConfig _playerMovementConfig;
@@ -60,7 +60,7 @@ namespace GMTKGame
             } 
             else if (direction == Direction.Up)
             {
-                Jumped?.Invoke();
+                Jumped?.Invoke(number);
             }
         }
 
@@ -72,13 +72,13 @@ namespace GMTKGame
         private void OnEnable()
         {
             _playerInputHandler.NumberPressed += OnNumberPressed;
-            _playerInputHandler.KeyPressed += (d) => OnMoveInDirection(d, 0);
+            _playerInputHandler.KeyPressed += OnMoveInDirection;
         }
 
         private void OnDisable()
         {
             _playerInputHandler.NumberPressed -= OnNumberPressed;
-            _playerInputHandler.KeyPressed -= (d) => OnMoveInDirection(d, 0);
+            _playerInputHandler.KeyPressed -= OnMoveInDirection;
         }
 
         private IEnumerator LerpPosition(Vector3 targetPosition, float duration)
