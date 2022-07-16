@@ -12,14 +12,14 @@ namespace GMTKGame
         private void Awake()
         {
             _transform = GetComponent<Transform>();
-            _position = transform.position;
+            _position = transform.localPosition;
         }
 
         private void Update()
         {
             var newPosition = new Vector3(_position.x,
                 _position.y + _flyAnimationCurve.Evaluate(_time), _position.z);
-            _transform.position = newPosition;
+            _transform.localPosition = newPosition;
             _time += Time.deltaTime;
         }
     }
