@@ -17,7 +17,7 @@ namespace GMTKGame
 
         private void OnNumberPressed(int number)
         {
-            Debug.Log(_playerPositionHandler.HighestEdge.EdgeNumber);
+            Debug.Log(_playerPositionHandler.GetDirectionByNumber(number));
         }
 
         private void OnEnable()

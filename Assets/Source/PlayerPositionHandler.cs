@@ -9,26 +9,26 @@ namespace GMTKGame
     {
         private Dictionary<int , DiceEdge> _edgesMap;
 
-        public DiceEdge HighestEdge
+        public DiceEdge HighEdge => GetEdgeByCondition((e) => e.Position.y, (e, max) => e > max);
+        public DiceEdge LeftEdge => GetEdgeByCondition((e) => e.Position.x, (e, max) => e < max);
+        public DiceEdge RightEdge => GetEdgeByCondition((e) => e.Position.x, (e, max) => e > max);
+        public DiceEdge ForwardEdge => GetEdgeByCondition((e) => e.Position.z, (e, max) => e > max);
+        public DiceEdge BackwardEdge => GetEdgeByCondition((e) => e.Position.z, (e, max) => e < max);
+
+        private DiceEdge GetEdgeByCondition(Func<DiceEdge, float> getPosition, Func<float, float, bool> condition)
         {
-            get
+            DiceEdge edge = _edgesMap.Values.First();
+            float max = getPosition(edge);
+            foreach (var diceEdge in _edgesMap.Values)
             {
-                float maxY = -1;
-                DiceEdge edge = null;
-                foreach (var diceEdge in _edgesMap.Values)
+                if (condition(getPosition(diceEdge), max))
                 {
-                    if (diceEdge.Position.y > maxY)
-                    {
-                        edge = diceEdge;
-                        maxY = diceEdge.Position.y;
-                    }
+                    edge = diceEdge;
+                    max = getPosition(diceEdge);
                 }
-
-                if (edge == null)
-                    throw new NullReferenceException(nameof(edge));
-
-                return edge;
             }
+
+            return edge;
         }
 
         private void Awake()
@@ -43,6 +43,21 @@ namespace GMTKGame
         public Direction GetDirectionByNumber(int number)
         {
             var edge = _edgesMap[number];
+
+            if (edge == HighEdge)
+                return Direction.Up;
+
+            if (edge == LeftEdge)
+                return Direction.Left;
+
+            if (edge == RightEdge)
+                return Direction.Right;
+
+            if (edge == ForwardEdge)
+                return Direction.Forward;
+
+            if (edge == BackwardEdge)
+                return Direction.Backward;
 
             return Direction.None;
         }
