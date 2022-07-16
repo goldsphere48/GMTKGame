@@ -64,9 +64,14 @@ namespace GMTKGame
             }
         }
 
-        private bool CanMoveInDirection(Vector3 direction)
+        private bool CanMoveInDirection(Vector3 center)
         {
-            return !Physics.Raycast(transform.position, direction, 0.5f);
+            return !Raycast(center);
+        }
+
+        private bool Raycast(Vector3 direction)
+        {
+            return Physics.Raycast(transform.position, direction, 0.8f);
         }
 
         private void OnEnable()
