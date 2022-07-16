@@ -13,17 +13,12 @@ namespace Assets.Source
     [RequireComponent(typeof(PlayerMovement))]
     internal class JumpHandler : MonoBehaviour
     {
-        [SerializeField] private AnimationCurve _jumpCurve;
-        [SerializeField] private float _duration;
-        [SerializeField] private float _jumpForce;
+        [SerializeField] private PlayerMovementConfig _playerMovementConfig;
 
         private PlayerInputHandler _playerInputHandler;
         private PlayerPositionHandler _playerPositionHandler;
         private PlayerMovement _playerMovement;
         private Rigidbody _rigidbody;
-        private float _maxKey;
-        private float _minKey;
-        private bool _isInJump;
 
         private void Awake()
         {
@@ -31,10 +26,6 @@ namespace Assets.Source
             _playerPositionHandler = GetComponent<PlayerPositionHandler>();
             _playerMovement = GetComponent<PlayerMovement>();
             _rigidbody = GetComponent<Rigidbody>();
-
-            var keyFrames = _jumpCurve.keys.ToList();
-            _maxKey = keyFrames.Max(k => k.value);
-            _minKey = keyFrames.Min(k => k.value);
         }
 
         private void OnNumberPressed(int number)
@@ -50,29 +41,17 @@ namespace Assets.Source
                 OnJump();
         }
 
-        private void OnJump()
+        public bool IsPlayerInAir()
         {
-            if (!_isInJump && _playerMovement.CurrentDirection == Direction.None)
-            {
-                _rigidbody.AddForce(new Vector3(0, _jumpForce, 0));
-            }
+            return _rigidbody.velocity.magnitude >= 0.1f;
         }
 
-        private IEnumerator Jump(float duration)
+        private void OnJump()
         {
-            float time = 0;
-            Vector3 startPosition = transform.position;
-            while (time < _duration)
+            if (!IsPlayerInAir() && _playerMovement.CurrentDirection == Direction.None)
             {
-                var step = time / duration;
-                var newPosition = new Vector3(startPosition.x, startPosition.y + _jumpCurve.Evaluate(step),
-                    startPosition.z);
-                transform.position = newPosition;
-                time += Time.deltaTime;
-                yield return null;
+                _rigidbody.AddForce(new Vector3(0, _playerMovementConfig.JumpForce, 0));
             }
-
-            _isInJump = false;
         }
 
         private void OnEnable()

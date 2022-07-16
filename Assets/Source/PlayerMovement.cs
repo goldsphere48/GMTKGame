@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections;
 using System.Net.NetworkInformation;
+using Assets.Source;
 using UnityEngine;
 
 namespace GMTKGame
 {
+    [RequireComponent(typeof(Rigidbody))]
     internal class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float _duration;
+        [SerializeField] private PlayerMovementConfig _playerMovementConfig;
 
         private Transform _transform;
         private PlayerInputHandler _playerInputHandler;
         private PlayerPositionHandler _playerPositionHandler;
+        private JumpHandler _jumpHandler;
+        private Rigidbody _rigidbody;
 
         private Direction _currentDirection = Direction.None;
 
@@ -21,7 +25,9 @@ namespace GMTKGame
         {
             _playerInputHandler = GetComponent<PlayerInputHandler>();
             _playerPositionHandler = GetComponent<PlayerPositionHandler>();
+            _rigidbody = GetComponent<Rigidbody>();
             _transform = GetComponent<Transform>();
+            _jumpHandler = GetComponent<JumpHandler>();
         }
 
         private void OnNumberPressed(int number)
@@ -35,9 +41,10 @@ namespace GMTKGame
         {
             if (_currentDirection == Direction.None && direction != Direction.Up)
             {
+                _rigidbody.velocity = Vector3.zero;
                 _currentDirection = direction;
                 var target = _transform.position + direction.ToVector3();
-                StartCoroutine(LerpPosition(target, _duration));
+                StartCoroutine(LerpPosition(target, _playerMovementConfig.PlayerMoveAnimationDuration));
             }
         }
 
@@ -60,6 +67,8 @@ namespace GMTKGame
             while (time < duration)
             {
                 var step = time / duration;
+                if (_jumpHandler.IsPlayerInAir())
+                    targetPosition = new Vector3(targetPosition.x, targetPosition.y - _playerMovementConfig.Gravity, targetPosition.z);
                 transform.position = Vector3.Lerp(startPosition, targetPosition, step);
                 time += Time.deltaTime;
                 yield return null;

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Source;
 using UnityEngine;
 
 namespace GMTKGame
@@ -7,7 +8,7 @@ namespace GMTKGame
     {
         [SerializeField] private PlayerInputHandler _playerInputHandler;
         [SerializeField] private PlayerPositionHandler _playerPositionHandler;
-        [SerializeField] private float _duration;
+        [SerializeField] private PlayerMovementConfig _playerMovementConfig;
 
         private Transform _transform;
 
@@ -31,7 +32,7 @@ namespace GMTKGame
             {
                 _currentDirection = direction;
                 var target = Quaternion.Euler(direction.ToVector3Angle()) * _transform.rotation;
-                StartCoroutine(LerpRotation(target, _duration));
+                StartCoroutine(LerpRotation(target, _playerMovementConfig.PlayerMoveAnimationDuration));
             }
         }
 
@@ -58,6 +59,8 @@ namespace GMTKGame
                 time += Time.deltaTime;
                 yield return null;
             }
+
+            transform.rotation = targetAngle;
             _currentDirection = Direction.None;
         }
     }
