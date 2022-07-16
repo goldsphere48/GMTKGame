@@ -16,6 +16,7 @@ namespace GMTKGame
         private PlayerPositionHandler _playerPositionHandler;
         private JumpHandler _jumpHandler;
         private Rigidbody _rigidbody;
+        private BoxCollider _boxCollider;
 
         private Direction _currentDirection = Direction.None;
 
@@ -28,6 +29,7 @@ namespace GMTKGame
             _rigidbody = GetComponent<Rigidbody>();
             _transform = GetComponent<Transform>();
             _jumpHandler = GetComponent<JumpHandler>();
+            _boxCollider = GetComponent<BoxCollider>();
         }
 
         private void OnNumberPressed(int number)
@@ -39,13 +41,18 @@ namespace GMTKGame
 
         private void OnMoveInDirection(Direction direction)
         {
-            if (_currentDirection == Direction.None && direction != Direction.Up)
+            if (_currentDirection == Direction.None && direction != Direction.Up && CanMoveInDirection(direction.ToVector3()))
             {
                 _rigidbody.velocity = Vector3.zero;
                 _currentDirection = direction;
                 var target = _transform.position + direction.ToVector3();
                 StartCoroutine(LerpPosition(target, _playerMovementConfig.PlayerMoveAnimationDuration));
             }
+        }
+
+        private bool CanMoveInDirection(Vector3 direction)
+        {
+            return !Physics.Raycast(transform.position, direction, 0.5f);
         }
 
         private void OnEnable()
