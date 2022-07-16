@@ -9,6 +9,10 @@ namespace GMTKGame
     [RequireComponent(typeof(Rigidbody))]
     internal class PlayerMovement : MonoBehaviour
     {
+        public event Action<int> Moved;
+        public event Action Jumped;
+        public event Action Hitted;
+
         [SerializeField] private PlayerMovementConfig _playerMovementConfig;
 
         private Transform _transform;
@@ -16,7 +20,6 @@ namespace GMTKGame
         private PlayerPositionHandler _playerPositionHandler;
         private JumpHandler _jumpHandler;
         private Rigidbody _rigidbody;
-        private BoxCollider _boxCollider;
 
         private Direction _currentDirection = Direction.None;
 
@@ -29,24 +32,35 @@ namespace GMTKGame
             _rigidbody = GetComponent<Rigidbody>();
             _transform = GetComponent<Transform>();
             _jumpHandler = GetComponent<JumpHandler>();
-            _boxCollider = GetComponent<BoxCollider>();
         }
 
         private void OnNumberPressed(int number)
         {
             var direction = _playerPositionHandler.GetDirectionByNumber(number);
             if (direction != Direction.None)
-                OnMoveInDirection(direction);
+                OnMoveInDirection(direction, number);
         }
 
-        private void OnMoveInDirection(Direction direction)
+        private void OnMoveInDirection(Direction direction, int number)
         {
-            if (_currentDirection == Direction.None && direction != Direction.Up && CanMoveInDirection(direction.ToVector3()))
+            if (_currentDirection == Direction.None && direction != Direction.Up)
             {
-                _rigidbody.velocity = Vector3.zero;
-                _currentDirection = direction;
-                var target = _transform.position + direction.ToVector3();
-                StartCoroutine(LerpPosition(target, _playerMovementConfig.PlayerMoveAnimationDuration));
+                if (CanMoveInDirection(direction.ToVector3()))
+                {
+                    _rigidbody.velocity = Vector3.zero;
+                    _currentDirection = direction;
+                    var target = _transform.position + direction.ToVector3();
+                    StartCoroutine(LerpPosition(target, _playerMovementConfig.PlayerMoveAnimationDuration));
+                    Moved?.Invoke(number);
+                } 
+                else
+                {
+                    Hitted?.Invoke();
+                }
+            } 
+            else if (direction == Direction.Up)
+            {
+                Jumped?.Invoke();
             }
         }
 
@@ -58,13 +72,13 @@ namespace GMTKGame
         private void OnEnable()
         {
             _playerInputHandler.NumberPressed += OnNumberPressed;
-            _playerInputHandler.KeyPressed += OnMoveInDirection;
+            _playerInputHandler.KeyPressed += (d) => OnMoveInDirection(d, 0);
         }
 
         private void OnDisable()
         {
             _playerInputHandler.NumberPressed -= OnNumberPressed;
-            _playerInputHandler.KeyPressed -= OnMoveInDirection;
+            _playerInputHandler.KeyPressed -= (d) => OnMoveInDirection(d, 0);
         }
 
         private IEnumerator LerpPosition(Vector3 targetPosition, float duration)
