@@ -8,8 +8,10 @@ namespace GMTKGame
     public class PlayerInputHandler : MonoBehaviour
     {
         private List<KeyCode> _validKeyCodes;
+        private Dictionary<KeyCode, Direction> _keyDirections;
 
-        public event Action<int> NumberPressed; 
+        public event Action<int> NumberPressed;
+        public event Action<Direction> KeyPressed;
 
         private void Awake()
         {
@@ -22,13 +24,25 @@ namespace GMTKGame
                 KeyCode.Alpha5,
                 KeyCode.Alpha6,
             };
+
+            _keyDirections = new Dictionary<KeyCode, Direction>
+            {
+                { KeyCode.W, Direction.Forward },
+                { KeyCode.A, Direction.Left },
+                { KeyCode.S, Direction.Backward },
+                { KeyCode.D, Direction.Right },
+                { KeyCode.Space, Direction.Up },
+            };
         }
 
         void Update()
         {
-            if (Input.anyKeyDown)
+            foreach (var keyDirection in _keyDirections)
             {
-                
+                if (Input.GetKeyDown(keyDirection.Key))
+                {
+                    KeyPressed?.Invoke(keyDirection.Value);
+                }
             }
             foreach (var validKeyCode in _validKeyCodes)
             {

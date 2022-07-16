@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Net.NetworkInformation;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace GMTKGame
 {
-    internal class PlayerMovement : MonoBehaviour
+    internal class PlayerRotation : MonoBehaviour
     {
+        [SerializeField] private PlayerInputHandler _playerInputHandler;
+        [SerializeField] private PlayerPositionHandler _playerPositionHandler;
         [SerializeField] private float _duration;
 
         private Transform _transform;
-        private PlayerInputHandler _playerInputHandler;
-        private PlayerPositionHandler _playerPositionHandler;
 
         private Direction _currentDirection = Direction.None;
 
-        public Direction CurrentDirection => _currentDirection;
-
         private void Awake()
         {
-            _playerInputHandler = GetComponent<PlayerInputHandler>();
-            _playerPositionHandler = GetComponent<PlayerPositionHandler>();
             _transform = GetComponent<Transform>();
         }
 
@@ -28,43 +22,42 @@ namespace GMTKGame
         {
             var direction = _playerPositionHandler.GetDirectionByNumber(number);
             if (direction != Direction.None)
-                OnMoveInDirection(direction);
+                OnRotateInDirection(direction);
         }
 
-        private void OnMoveInDirection(Direction direction)
+        private void OnRotateInDirection(Direction direction)
         {
             if (_currentDirection == Direction.None && direction != Direction.Up)
             {
                 _currentDirection = direction;
-                var target = _transform.position + direction.ToVector3();
-                StartCoroutine(LerpPosition(target, _duration));
+                var target = Quaternion.Euler(direction.ToVector3Angle()) * _transform.rotation;
+                StartCoroutine(LerpRotation(target, _duration));
             }
         }
 
         private void OnEnable()
         {
             _playerInputHandler.NumberPressed += OnNumberPressed;
-            _playerInputHandler.KeyPressed += OnMoveInDirection;
+            _playerInputHandler.KeyPressed += OnRotateInDirection;
         }
 
         private void OnDisable()
         {
             _playerInputHandler.NumberPressed -= OnNumberPressed;
-            _playerInputHandler.KeyPressed -= OnMoveInDirection;
+            _playerInputHandler.KeyPressed -= OnRotateInDirection;
         }
 
-        private IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+        private IEnumerator LerpRotation(Quaternion targetAngle, float duration)
         {
             float time = 0;
-            Vector3 startPosition = transform.position;
+            Quaternion startQuaternion = transform.rotation;
             while (time < duration)
             {
                 var step = time / duration;
-                transform.position = Vector3.Lerp(startPosition, targetPosition, step);
+                transform.rotation = Quaternion.Lerp(startQuaternion, targetAngle, step);
                 time += Time.deltaTime;
                 yield return null;
             }
-            transform.position = targetPosition;
             _currentDirection = Direction.None;
         }
     }
