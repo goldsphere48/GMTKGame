@@ -408,9 +408,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _rigidbody: {fileID: 0}
   _duration: 0.5
-  _jumpForce: 0
+  _jumpForce: 200
 --- !u!54 &6387511846832351686
 Rigidbody:
   m_ObjectHideFlags: 0
