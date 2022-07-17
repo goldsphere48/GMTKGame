@@ -24,6 +24,7 @@ namespace Assets.Source
 
         private void OnLevelSpawned()
         {
+            Value = 0;
             _maxCoins = _levelFlow.CurrentWorld.CoinsTotal;
             _collectedCoinsText.text = $"{Value} / {_maxCoins}";
         }
