@@ -16,6 +16,6 @@ MonoBehaviour:
   Completed: 0
   Unlocked: 1
   World: {fileID: 8482215423998313285, guid: 421d50dbc8d297540b783280cad53496, type: 3}
-  CoinsCollected: 24
+  CoinsCollected: 0
   CoinsTotal: 24
   Time: 0

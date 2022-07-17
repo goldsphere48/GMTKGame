@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SPIKY GRAVEYARD
   Completed: 0
-  Unlocked: 1
+  Unlocked: 0
   World: {fileID: 8482215423998313285, guid: e2c1a8ae1a6b22640b22af3597f30b30, type: 3}
-  CoinsCollected: 35
+  CoinsCollected: 0
   CoinsTotal: 35
   Time: 0
