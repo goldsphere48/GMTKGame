@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.440569, g: 0.48919678, b: 0.5693411, a: 1}
+  m_IndirectSpecularColor: {r: 0.4385613, g: 0.48667014, b: 0.5669423, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -551,6 +551,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8482215422843413902, guid: e2c1a8ae1a6b22640b22af3597f30b30, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8482215423998313284, guid: e2c1a8ae1a6b22640b22af3597f30b30, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -958,6 +962,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6753807335417801395, guid: d3bef591d74659f419c65d82e9171883, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7899351322381033095, guid: d3bef591d74659f419c65d82e9171883, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 49.829
@@ -1030,6 +1038,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482215422911188453, guid: d3bef591d74659f419c65d82e9171883, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8482215423567477311, guid: d3bef591d74659f419c65d82e9171883, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1096,9 +1108,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482215423998313285, guid: d3bef591d74659f419c65d82e9171883, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8482215424779348463, guid: d3bef591d74659f419c65d82e9171883, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715474463874764733, guid: d3bef591d74659f419c65d82e9171883, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
