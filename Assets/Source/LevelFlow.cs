@@ -17,6 +17,7 @@ namespace GMTKGame
 
         public event Action LevelSpawned;
         public event Action LevelFinished;
+        public event Action WinLastLevel;
 
         public IReadOnlyList<WorldData> Worlds => _worlds;
         public WorldData CurrentWorld => _currentWorld;
@@ -51,6 +52,7 @@ namespace GMTKGame
             _currentWorld = GetNextLevel();
             if (_currentWorld == null)
             {
+                WinLastLevel?.Invoke();
                 ClearProgress();
             }
             else
