@@ -27,10 +27,10 @@ namespace GMTKGame
         private void Awake()
         {
             var initialLevelName = PlayerPrefs.GetString("InitialLevel");
-            if (initialLevelName != null)
+            if (!string.IsNullOrEmpty(initialLevelName))
                 _currentWorld = _worlds.Find(w => w.Name == initialLevelName);
             else
-                _currentWorld = _worlds.Find(w => !w.Completed);
+                _currentWorld = _worlds[0];
 
         }
 

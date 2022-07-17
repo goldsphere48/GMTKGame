@@ -38,7 +38,7 @@ namespace GMTKGame
 
         private void Close()
         {
-            Application.Quit();
+            OnResumeButtonClick();
         }
 
         private void OnWinLastLevel()
