@@ -5558,7 +5558,10 @@ MonoBehaviour:
   _winLevelMenu: {fileID: 173677324}
   _levelFlow: {fileID: 0}
   _resumeButton: {fileID: 1647105751}
-  _mainMenuButton: {fileID: 0}
+  _mainMenuButton: {fileID: 1065562509}
+  _topLeft: {fileID: 1660471828}
+  _topRight: {fileID: 1365911423}
+  _bottomLeft: {fileID: 485048228}
 --- !u!4 &1688754206
 Transform:
   m_ObjectHideFlags: 0

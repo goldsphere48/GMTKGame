@@ -13,6 +13,10 @@ namespace GMTKGame
         [SerializeField] private Button _resumeButton;
         [SerializeField] private Button _mainMenuButton;
 
+        [SerializeField] private GameObject _topLeft;
+        [SerializeField] private GameObject _topRight;
+        [SerializeField] private GameObject _bottomLeft;
+
         private bool _isEscape;
 
         private bool _isInMenu;
@@ -27,6 +31,9 @@ namespace GMTKGame
 
         private void OnWinLastLevel()
         {
+            _topLeft.SetActive(false);
+            _topRight.SetActive(false);
+            _bottomLeft.SetActive(false);
             _pauseCanvas.SetActive(true);
             _winLevelMenu.SetActive(true);
         }
