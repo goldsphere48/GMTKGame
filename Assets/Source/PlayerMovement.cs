@@ -71,7 +71,12 @@ namespace GMTKGame
 
         private bool Raycast(Vector3 direction)
         {
-            return Physics.Raycast(transform.position, direction, 0.8f);
+            RaycastHit hit;
+            var result = Physics.Raycast(transform.position, direction, out hit, 0.8f);
+            var isCoin = false;
+            if (hit.transform != null)
+                isCoin = hit.transform.gameObject.GetComponent<Coin>() != null;
+            return result && !isCoin;
         }
 
         private void OnEnable()
