@@ -1251,7 +1251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8482215423998313284}
   m_Layer: 0
-  m_Name: World 2 - Forest
+  m_Name: Legacy World 2 - Forest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
