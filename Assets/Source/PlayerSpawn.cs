@@ -10,24 +10,28 @@ namespace GMTKGame
         [SerializeField] private Transform _cubeTransform;
         [SerializeField] private float _startHeight = 10;
         private FollowPlayer _followPlayerScript;
+        private PlayerInputHandler _playerInputHandler;
         private Transform _transform;
 
         private void Awake()
         {
             _transform = transform;
             _followPlayerScript = FindObjectOfType<FollowPlayer>();
+            _playerInputHandler = GetComponent<PlayerInputHandler>();
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             _followPlayerScript.CalculateDistanceToPlayer();
             _followPlayerScript.enabled = true;
+            _playerInputHandler.enabled = true;
             enabled = false;
         }
 
         public void Spawn(Checkpoint checkpoint)
         {
             _followPlayerScript.enabled = false;
+            _playerInputHandler.enabled = false;
             enabled = true;
             AlignRotation();
             RandomRotate();
