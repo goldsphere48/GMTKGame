@@ -12,6 +12,10 @@ namespace GMTKGame
         private void Awake()
         {
             _transform = transform;
+        }
+
+        public void CalculateDistanceToPlayer()
+        {
             _distanceToPlayer = _transform.position - _player.transform.position;
         }
 

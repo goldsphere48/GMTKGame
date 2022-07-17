@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7086402231508779515
 Transform:
   m_ObjectHideFlags: 0
@@ -1522,6 +1522,7 @@ GameObject:
   - component: {fileID: 1331690317259612792}
   - component: {fileID: 4585265571561245918}
   - component: {fileID: 8753571740348701086}
+  - component: {fileID: 7262944832085393872}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1675,6 +1676,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def4c6546d19d8a419185090e3bb8bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7262944832085393872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087299754366769331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8b02b66a3eb2d48bd1a9a070dd5798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cubeTransform: {fileID: 4399977073187445682}
+  _startHeight: 0
 --- !u!1 &5451549714337804673
 GameObject:
   m_ObjectHideFlags: 0
