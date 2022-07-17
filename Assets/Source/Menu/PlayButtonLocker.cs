@@ -13,7 +13,7 @@ namespace GMTKGame
         private void Awake()
         {
             _button = GetComponent<Button>();
-            // _button.enabled = _worldData.Unlocked;
+            _button.enabled = _worldData.Unlocked;
         }
     }
 
