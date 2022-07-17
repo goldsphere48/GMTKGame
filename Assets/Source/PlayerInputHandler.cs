@@ -25,6 +25,12 @@ namespace GMTKGame
                 KeyCode.Alpha4,
                 KeyCode.Alpha5,
                 KeyCode.Alpha6,
+                KeyCode.Keypad1,
+                KeyCode.Keypad2,
+                KeyCode.Keypad3,
+                KeyCode.Keypad4,
+                KeyCode.Keypad5,
+                KeyCode.Keypad6,
             };
 
             _keyDirections = new Dictionary<KeyCode, Direction>
