@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace GMTKGame
@@ -8,6 +9,9 @@ namespace GMTKGame
     internal class LevelFlow : MonoBehaviour
     {
         [SerializeField] private List<WorldData> _worlds;
+        [SerializeField] private TextMeshProUGUI _levelName;
+        [SerializeField] private TextMeshProUGUI _levelNumber;
+
         private WorldData _currentWorld;
         private GameObject _currentLevelPrefab;
 
@@ -34,6 +38,8 @@ namespace GMTKGame
         private void SpawnLevel()
         {
             _currentLevelPrefab = Instantiate(_currentWorld.World);
+            _levelName.text = _currentWorld.Name;
+            _levelNumber.text = $"LEVEL {_worlds.IndexOf(_currentWorld) + 1}";
             LevelSpawned?.Invoke();
         }
 

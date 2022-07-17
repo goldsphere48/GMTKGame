@@ -1947,6 +1947,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f033411dfb3f2504e9e029cb050b8165, type: 2}
   - {fileID: 11400000, guid: f868ecfe22a39a648a4be8cd79d62ddb, type: 2}
   - {fileID: 11400000, guid: eee2a5a371adcdc43b8fd590a9f06978, type: 2}
+  _levelName: {fileID: 310079779}
+  _levelNumber: {fileID: 1664701192}
 --- !u!4 &1317506832
 Transform:
   m_ObjectHideFlags: 0
