@@ -16,6 +16,7 @@ namespace GMTKGame
         private GameObject _currentLevelPrefab;
 
         public event Action LevelSpawned;
+        public event Action LevelFinished;
 
         public IReadOnlyList<WorldData> Worlds => _worlds;
         public WorldData CurrentWorld => _currentWorld;
@@ -45,6 +46,7 @@ namespace GMTKGame
 
         public IEnumerator WinLevel()
         {
+            LevelFinished?.Invoke();
             _currentWorld.Completed = true;
             _currentWorld = GetNextLevel();
             if (_currentWorld == null)

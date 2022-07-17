@@ -11,5 +11,6 @@ namespace GMTKGame
         public GameObject World;
         public int CoinsCollected;
         public int CoinsTotal;
+        public int Time;
     }
 }

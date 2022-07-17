@@ -5,6 +5,7 @@ namespace GMTKGame.Mechanics
     [RequireComponent(typeof(BoxCollider))]
     internal class Spikes : MonoBehaviour
     {
+        [SerializeField] private AudioSource _damageAudio;
         private Player _player;
 
         private void Awake()
@@ -16,6 +17,7 @@ namespace GMTKGame.Mechanics
         {
             if (collider.gameObject.GetComponent<Player>() != null)
             {
+                _damageAudio.Play();
                 _player.Hit();
             }
         }

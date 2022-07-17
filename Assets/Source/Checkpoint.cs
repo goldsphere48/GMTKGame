@@ -7,6 +7,7 @@ namespace GMTKGame
     internal class Checkpoint : MonoBehaviour
     {
         [SerializeField] private int _id;
+        [SerializeField] private AudioSource _audioSource;
         private World _world;
 
         public int Id => _id;
@@ -30,6 +31,7 @@ namespace GMTKGame
         {
             if (_world.LastCheckpointId < Id)
             {
+                _audioSource.Play();
                 _world.LastCheckpointId = Id;
                 CheckpointEntered?.Invoke();
                 Debug.Log("Checkpoint!");
