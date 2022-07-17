@@ -25721,7 +25721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557260575261668587, guid: 1e70d3f229e250a4ea98fa437aa36cc6, type: 3}
       propertyPath: _id
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e70d3f229e250a4ea98fa437aa36cc6, type: 3}
@@ -25787,7 +25787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557260575261668587, guid: 1e70d3f229e250a4ea98fa437aa36cc6, type: 3}
       propertyPath: _id
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e70d3f229e250a4ea98fa437aa36cc6, type: 3}
@@ -36916,6 +36916,10 @@ PrefabInstance:
     - target: {fileID: 557260575261668586, guid: 1e70d3f229e250a4ea98fa437aa36cc6, type: 3}
       propertyPath: m_Name
       value: Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 557260575261668587, guid: 1e70d3f229e250a4ea98fa437aa36cc6, type: 3}
+      propertyPath: _id
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e70d3f229e250a4ea98fa437aa36cc6, type: 3}
