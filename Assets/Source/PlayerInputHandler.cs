@@ -48,13 +48,15 @@ namespace GMTKGame
 
         void Update()
         {
+#if DEBUG
             foreach (var keyDirection in _keyDirections)
             {
                 if (Input.GetKeyDown(keyDirection.Key))
                 {
-                    // KeyPressed?.Invoke(keyDirection.Value, _playerPositionHandler.DirectionsToNumber[keyDirection.Value]);
+                    KeyPressed?.Invoke(keyDirection.Value, _playerPositionHandler.DirectionsToNumber[keyDirection.Value]);
                 }
             }
+#endif
             foreach (var validKeyCode in _validKeyCodes)
             {
                 if (Input.GetKeyDown(validKeyCode))
