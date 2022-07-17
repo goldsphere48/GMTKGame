@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Spikey Graveyard
   Completed: 0
+  Unlocked: 0
   World: {fileID: 8482215423998313285, guid: e2c1a8ae1a6b22640b22af3597f30b30, type: 3}

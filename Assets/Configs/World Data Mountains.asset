@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Snowy Mountains
   Completed: 0
+  Unlocked: 0
   World: {fileID: 8482215423998313285, guid: 59e5b8fc5f264ee43a32482454d53465, type: 3}
