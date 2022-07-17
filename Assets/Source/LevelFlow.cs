@@ -40,13 +40,13 @@ namespace GMTKGame
         {
             _currentWorld.Completed = true;
             _currentWorld = GetNextLevel();
-            _currentWorld.Unlocked = true;
             if (_currentWorld == null)
             {
                 ClearProgress();
             }
             else
             {
+                _currentWorld.Unlocked = true;
                 Destroy(_currentLevelPrefab);
                 yield return null;
                 SpawnLevel();
