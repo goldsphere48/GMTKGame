@@ -12,6 +12,8 @@ namespace GMTKGame
         [SerializeField] private TextMeshProUGUI _levelName;
         [SerializeField] private TextMeshProUGUI _levelNumber;
 
+        [SerializeField] private AudioSource _winSound;
+        
         private WorldData _currentWorld;
         private GameObject _currentLevelPrefab;
 
@@ -47,6 +49,7 @@ namespace GMTKGame
 
         public IEnumerator WinLevel()
         {
+            _winSound.Play();
             LevelFinished?.Invoke();
             _currentWorld.Completed = true;
             _currentWorld = GetNextLevel();

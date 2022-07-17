@@ -9,6 +9,8 @@ namespace GMTKGame
         [SerializeField] private FollowPlayer _followPlayer;
         [SerializeField] private LevelFlow _levelFlow;
 
+        [SerializeField] private AudioSource _audioSource;
+
         private World _world;
 
         private void OnDead()
@@ -29,6 +31,7 @@ namespace GMTKGame
 
         public void RespawnPlayer()
         {
+            _audioSource.Play();
             _followPlayer.LookAt(_world.LastSavedCheckpoint.transform);
             _playerSpawn.Spawn(_world.LastSavedCheckpoint);
         }
