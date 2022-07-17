@@ -17,9 +17,9 @@ namespace GMTKGame
             _meshRenderer = GetComponent<MeshRenderer>();
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collider)
         {
-            if (collision.gameObject.GetComponent<Player>() != null)
+            if (collider.gameObject.GetComponent<Player>() != null)
             {
                 StartCoroutine(PlaySound());
             }
