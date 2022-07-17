@@ -21,10 +21,14 @@ namespace GMTKGame
         private PlayerPositionHandler _playerPositionHandler;
         private JumpHandler _jumpHandler;
         private Rigidbody _rigidbody;
+        private DeathPlane _deathPlane;
+        private PlayerSpawn _playerSpawn;
+        [SerializeField] private bool _isInGameMenu;
 
         private Direction _currentDirection = Direction.None;
 
         public Direction CurrentDirection => _currentDirection;
+        private bool _isDead;
 
         private void Awake()
         {
@@ -33,6 +37,23 @@ namespace GMTKGame
             _rigidbody = GetComponent<Rigidbody>();
             _transform = GetComponent<Transform>();
             _jumpHandler = GetComponent<JumpHandler>();
+            _deathPlane = FindObjectOfType<DeathPlane>();
+            _playerSpawn = FindObjectOfType<PlayerSpawn>();
+            _playerSpawn.Spawned += OnAlive;
+            if (!_isInGameMenu)
+            {
+                _deathPlane.Dead += OnDead;
+            }
+        }
+
+            private void OnDead()
+        {
+            _isDead = true;
+        }
+
+        private void OnAlive()
+        {
+            _isDead = false;
         }
 
         private void OnNumberPressed(int number)
@@ -94,6 +115,9 @@ namespace GMTKGame
             Vector3 startPosition = transform.position;
             while (time < duration)
             {
+                if (_isDead)
+                    break;
+
                 var step = time / duration;
                 if (_jumpHandler.IsPlayerInAir())
                     targetPosition = new Vector3(targetPosition.x, targetPosition.y - _playerMovementConfig.Gravity, targetPosition.z);
@@ -101,7 +125,13 @@ namespace GMTKGame
                 time += Time.deltaTime;
                 yield return null;
             }
-            transform.position = targetPosition;
+
+            if (!_isDead)
+            {
+                transform.position = targetPosition;
+                Debug.Log("Hui");
+            }
+
             _currentDirection = Direction.None;
             Moved?.Invoke();
         }

@@ -19,6 +19,9 @@ namespace GMTKGame
         private Transform _transform;
         private Rigidbody _rigidbody;
         private SideProjectionMaterialsStore _sideProjectionMaterialsStore;
+        
+        public event Action Spawned; 
+
 
         private void Awake()
         {
@@ -34,6 +37,7 @@ namespace GMTKGame
         {
             if (enabled)
             {
+                Spawned?.Invoke();
                 _followPlayerScript.enabled = true;
                 _playerInputHandler.enabled = true;
                 enabled = false;
