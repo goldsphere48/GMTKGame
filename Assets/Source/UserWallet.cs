@@ -25,13 +25,16 @@ namespace Assets.Source
         private void OnLevelSpawned()
         {
             _maxCoins = _levelFlow.CurrentWorld.CoinsTotal;
-            Value = _levelFlow.CurrentWorld.CoinsCollected;
             _collectedCoinsText.text = $"{Value} / {_maxCoins}";
         }
 
         public void AddCoin(int value = 1)
         {
-            _levelFlow.CurrentWorld.CoinsCollected++;
+            if (_levelFlow.CurrentWorld.CoinsCollected + 1 <= _levelFlow.CurrentWorld.CoinsTotal)
+            {
+                _levelFlow.CurrentWorld.CoinsCollected++;
+            }
+
             Value++;
             _collectedCoinsText.text = $"{Value} / {_maxCoins}";
         }
