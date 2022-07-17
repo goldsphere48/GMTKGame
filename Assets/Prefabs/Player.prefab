@@ -1658,7 +1658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMoveAnimationDuration: 0.2
   _gravity: 0.01
-  _jumpForce: 300
+  _jumpForce: 275
 --- !u!114 &4585265571561245918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,7 +1705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cubeTransform: {fileID: 4399977073187445682}
-  _startHeight: 10
+  _startHeight: 6
 --- !u!114 &1735493147287085974
 MonoBehaviour:
   m_ObjectHideFlags: 0
