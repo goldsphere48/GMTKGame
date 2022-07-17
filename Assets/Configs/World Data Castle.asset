@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bb05a295d1924438c847ecb45038b7, type: 3}
   m_Name: World Data Castle
   m_EditorClassIdentifier: 
-  Name: Dicey Castle
-  Completed: 0
+  Name: DICEY CASTLE
+  Completed: 1
   Unlocked: 1
   World: {fileID: 8482215423998313285, guid: d83dd701b1d06f244bdb8d511e7a9a66, type: 3}
-  CoinsCollected: 0
+  CoinsCollected: 32
   CoinsTotal: 20

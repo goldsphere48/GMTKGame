@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bb05a295d1924438c847ecb45038b7, type: 3}
   m_Name: World Data Mountains
   m_EditorClassIdentifier: 
-  Name: Snowy Mountains
+  Name: SNOWY MOUNTAINS
   Completed: 0
-  Unlocked: 0
+  Unlocked: 1
   World: {fileID: 8482215423998313285, guid: 59e5b8fc5f264ee43a32482454d53465, type: 3}
-  CoinsCollected: 0
+  CoinsCollected: 4
   CoinsTotal: 32
