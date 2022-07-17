@@ -13,6 +13,7 @@ namespace GMTKGame
         public event Action<int> NumberPressed;
         public event Action<Direction, int> KeyPressed;
         private PlayerPositionHandler _playerPositionHandler;
+        private RespawnSystem _respawnSystem;
 
         private void Awake()
         {
@@ -36,6 +37,7 @@ namespace GMTKGame
             };
 
             _playerPositionHandler = GetComponent<PlayerPositionHandler>();
+            _respawnSystem = FindObjectOfType<RespawnSystem>();
         }
 
         void Update()
@@ -53,6 +55,11 @@ namespace GMTKGame
                 {
                     NumberPressed?.Invoke(validKeyCode.ToInt());
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _respawnSystem.RespawnPlayer();
             }
         }
     }
