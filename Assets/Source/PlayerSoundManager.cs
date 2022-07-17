@@ -17,7 +17,7 @@ namespace Assets.Source
             _playerMovement = GetComponent<PlayerMovement>();
         }
 
-        private void OnMoved(int number)
+        private void OnMove(int number)
         {
             _movementSounds[number - 1].Play();
         }
@@ -35,14 +35,14 @@ namespace Assets.Source
 
         private void OnEnable()
         {
-            _playerMovement.Moved += OnMoved;
+            _playerMovement.Move += OnMove;
             _playerMovement.Jumped += OnJumped;
             _playerMovement.Hitted += OnHitted;
         }
 
         private void OnDisable()
         {
-            _playerMovement.Moved -= OnMoved;
+            _playerMovement.Move -= OnMove;
             _playerMovement.Jumped -= OnJumped;
             _playerMovement.Hitted -= OnHitted;
         }

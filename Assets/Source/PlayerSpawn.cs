@@ -18,6 +18,7 @@ namespace GMTKGame
         private PlayerFreezeController _playerFreezeController;
         private Transform _transform;
         private Rigidbody _rigidbody;
+        private SideProjectionMaterialsStore _sideProjectionMaterialsStore;
 
         private void Awake()
         {
@@ -26,6 +27,7 @@ namespace GMTKGame
             _playerInputHandler = GetComponent<PlayerInputHandler>();
             _playerFreezeController = GetComponent<PlayerFreezeController>();
             _rigidbody = GetComponent<Rigidbody>();
+            _sideProjectionMaterialsStore = FindObjectOfType<SideProjectionMaterialsStore>();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -49,6 +51,7 @@ namespace GMTKGame
             AlignRotation();
             RandomRotate();
             PlaceUnderCheckpoint(checkpoint);
+            _sideProjectionMaterialsStore.SetupProjections();
         }
 
         private void PlaceUnderCheckpoint(Checkpoint checkpoint)

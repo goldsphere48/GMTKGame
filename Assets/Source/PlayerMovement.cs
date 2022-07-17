@@ -9,7 +9,8 @@ namespace GMTKGame
     [RequireComponent(typeof(Rigidbody))]
     internal class PlayerMovement : MonoBehaviour
     {
-        public event Action<int> Moved;
+        public event Action<int> Move;
+        public event Action Moved;
         public event Action<int> Jumped;
         public event Action Hitted;
 
@@ -51,7 +52,7 @@ namespace GMTKGame
                     _currentDirection = direction;
                     var target = _transform.position + direction.ToVector3();
                     StartCoroutine(LerpPosition(target, _playerMovementConfig.PlayerMoveAnimationDuration));
-                    Moved?.Invoke(number);
+                    Move?.Invoke(number);
                 } 
                 else
                 {
@@ -106,6 +107,7 @@ namespace GMTKGame
             }
             transform.position = targetPosition;
             _currentDirection = Direction.None;
+            Moved?.Invoke();
         }
     }
 }
