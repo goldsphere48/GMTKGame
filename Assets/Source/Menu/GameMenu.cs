@@ -33,7 +33,7 @@ namespace GMTKGame
             _levelFlow.WinLastLevel += OnWinLastLevel;
             _mainMenuButton.onClick.AddListener(OpenMenu);
             _mainMenuButtonSettings.onClick.AddListener(OpenMenu);
-            _quitGameButton.onClick.AddListener(Close);
+            _quitGameButton.onClick.AddListener(OpenMenu);
         }
 
         private void Close()
