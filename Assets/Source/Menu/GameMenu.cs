@@ -12,6 +12,7 @@ namespace GMTKGame
         [SerializeField] private LevelFlow _levelFlow;
         [SerializeField] private Button _resumeButton;
         [SerializeField] private Button _mainMenuButton;
+        [SerializeField] private Button _mainMenuButtonSettings;
 
         [SerializeField] private GameObject _topLeft;
         [SerializeField] private GameObject _topRight;
@@ -27,6 +28,7 @@ namespace GMTKGame
             _levelFlow = FindObjectOfType<LevelFlow>();
             _levelFlow.WinLastLevel += OnWinLastLevel;
             _mainMenuButton.onClick.AddListener(OpenMenu);
+            _mainMenuButtonSettings.onClick.AddListener(OpenMenu);
         }
 
         private void OnWinLastLevel()

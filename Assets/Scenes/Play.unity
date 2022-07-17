@@ -5853,6 +5853,7 @@ MonoBehaviour:
   _levelFlow: {fileID: 0}
   _resumeButton: {fileID: 1647105751}
   _mainMenuButton: {fileID: 1065562509}
+  _mainMenuButtonSettings: {fileID: 400846152}
   _topLeft: {fileID: 1660471828}
   _topRight: {fileID: 1365911423}
   _bottomLeft: {fileID: 485048228}
