@@ -2805,7 +2805,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -6552,7 +6552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0225192465a7235459a59eb66bb4955a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _world: {fileID: 11400000, guid: a6ce136dbf4f34b44972463c0ad967c2, type: 2}
+  _world: {fileID: 11400000, guid: f033411dfb3f2504e9e029cb050b8165, type: 2}
 --- !u!114 &4330032650409362719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6565,7 +6565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f25a1db80d48344953d34e3ac3c78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worldData: {fileID: 11400000, guid: a6ce136dbf4f34b44972463c0ad967c2, type: 2}
+  _worldData: {fileID: 11400000, guid: f033411dfb3f2504e9e029cb050b8165, type: 2}
 --- !u!1001 &7126060256654215302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6692,7 +6692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0225192465a7235459a59eb66bb4955a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _world: {fileID: 11400000, guid: f868ecfe22a39a648a4be8cd79d62ddb, type: 2}
+  _world: {fileID: 11400000, guid: a6ce136dbf4f34b44972463c0ad967c2, type: 2}
 --- !u!114 &7126060256654215308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6705,7 +6705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f25a1db80d48344953d34e3ac3c78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worldData: {fileID: 11400000, guid: f868ecfe22a39a648a4be8cd79d62ddb, type: 2}
+  _worldData: {fileID: 11400000, guid: a6ce136dbf4f34b44972463c0ad967c2, type: 2}
 --- !u!1001 &7822412419715161626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6836,7 +6836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0225192465a7235459a59eb66bb4955a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _world: {fileID: 11400000, guid: f033411dfb3f2504e9e029cb050b8165, type: 2}
+  _world: {fileID: 11400000, guid: f868ecfe22a39a648a4be8cd79d62ddb, type: 2}
 --- !u!114 &7822412419715161632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6849,4 +6849,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f25a1db80d48344953d34e3ac3c78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worldData: {fileID: 11400000, guid: f033411dfb3f2504e9e029cb050b8165, type: 2}
+  _worldData: {fileID: 11400000, guid: f868ecfe22a39a648a4be8cd79d62ddb, type: 2}
