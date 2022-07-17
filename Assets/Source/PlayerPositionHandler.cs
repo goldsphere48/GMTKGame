@@ -34,7 +34,7 @@ namespace GMTKGame
             return edge;
         }
 
-        private void Start()
+        private void Awake()
         {
             _edgesMap = new Dictionary<int , DiceEdge>();
             foreach (var edge in GetComponentsInChildren<DiceEdge>())
