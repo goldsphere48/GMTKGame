@@ -35,6 +35,7 @@ namespace GMTKGame
         {
             _currentWorld.Completed = true;
             _currentWorld = GetNextLevel();
+            _currentWorld.Unlocked = true;
             if (_currentWorld == null)
             {
                 ClearProgress();

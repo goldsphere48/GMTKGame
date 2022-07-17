@@ -7,6 +7,7 @@ namespace GMTKGame
     {
         public string Name;
         public bool Completed;
+        public bool Unlocked;
         public GameObject World;
     }
 }
