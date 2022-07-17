@@ -1523,6 +1523,8 @@ GameObject:
   - component: {fileID: 4585265571561245918}
   - component: {fileID: 8753571740348701086}
   - component: {fileID: 7262944832085393872}
+  - component: {fileID: 1735493147287085974}
+  - component: {fileID: 637039300070809197}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1690,6 +1692,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cubeTransform: {fileID: 4399977073187445682}
   _startHeight: 0
+--- !u!114 &1735493147287085974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087299754366769331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572a58e60b832cb4796e1e633a55591b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &637039300070809197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087299754366769331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687ea5b5aeae1d64abfce759183a94f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bounceForce: 500
+  _torque: 100
 --- !u!1 &5451549714337804673
 GameObject:
   m_ObjectHideFlags: 0

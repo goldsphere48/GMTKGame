@@ -6,10 +6,13 @@ namespace GMTKGame
     internal class StartGame : MonoBehaviour
     {
         private PlayerSpawn _playerSpawn;
-        [SerializeField] private Checkpoint _startCheckpoint;
+        private Checkpoint _startCheckpoint;
+        private World _world;
 
         private void Awake()
         {
+            _world = GetComponent<World>();
+            _startCheckpoint = _world.StartCheckpoint;
             _playerSpawn = FindObjectOfType<PlayerSpawn>();
         }
 

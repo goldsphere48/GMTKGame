@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace GMTKGame
 {
@@ -9,6 +10,8 @@ namespace GMTKGame
         private WorldData _worldData;
 
         public int Id => _id;
+
+        public event Action CheckpointEntered;
 
         private void Awake()
         {
@@ -29,6 +32,7 @@ namespace GMTKGame
             if (_worldData.LastCheckpointId < Id)
             {
                 _worldData.LastCheckpointId = Id;
+                CheckpointEntered?.Invoke();
                 Debug.Log("Checkpoint!");
             }
         }

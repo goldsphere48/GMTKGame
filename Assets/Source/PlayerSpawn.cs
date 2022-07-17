@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Linq;
+using Assets.Source;
 using UnityEngine;
 using Random = System.Random;
 
 namespace GMTKGame
 {
+    [RequireComponent(typeof(PlayerInputHandler))]
+    [RequireComponent(typeof(PlayerFreezeController))]
     internal class PlayerSpawn : MonoBehaviour
     {
         [SerializeField] private Transform _cubeTransform;
         [SerializeField] private float _startHeight = 10;
         private FollowPlayer _followPlayerScript;
         private PlayerInputHandler _playerInputHandler;
+        private PlayerFreezeController _playerFreezeController;
         private Transform _transform;
 
         private void Awake()
@@ -18,18 +22,23 @@ namespace GMTKGame
             _transform = transform;
             _followPlayerScript = FindObjectOfType<FollowPlayer>();
             _playerInputHandler = GetComponent<PlayerInputHandler>();
+            _playerFreezeController = GetComponent<PlayerFreezeController>();
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            _followPlayerScript.CalculateDistanceToPlayer();
-            _followPlayerScript.enabled = true;
-            _playerInputHandler.enabled = true;
-            enabled = false;
+            if (enabled)
+            {
+                _followPlayerScript.CalculateDistanceToPlayer();
+                _followPlayerScript.enabled = true;
+                _playerInputHandler.enabled = true;
+                enabled = false;
+            }
         }
 
         public void Spawn(Checkpoint checkpoint)
         {
+            _playerFreezeController.Freeze();
             _followPlayerScript.enabled = false;
             _playerInputHandler.enabled = false;
             enabled = true;

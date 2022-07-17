@@ -7,6 +7,8 @@ namespace GMTKGame
     {
         [SerializeField] private string _worldName;
         public int LastCheckpointId;
+        public int MaxCheckpointId;
+
         private string WorldName => _worldName;
     }
 }
