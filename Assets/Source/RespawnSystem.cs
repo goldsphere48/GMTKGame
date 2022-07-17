@@ -7,13 +7,9 @@ namespace GMTKGame
         [SerializeField] private DeathPlane _deathPlane;
         [SerializeField] private PlayerSpawn _playerSpawn;
         [SerializeField] private FollowPlayer _followPlayer;
+        [SerializeField] private LevelFlow _levelFlow;
 
         private World _world;
-
-        private void Awake()
-        {
-            _world = GetComponent<World>();
-        }
 
         private void OnDead()
         {
@@ -21,14 +17,15 @@ namespace GMTKGame
             _playerSpawn.Spawn(_world.LastSavedCheckpoint);
         }
 
-        private void OnEnable()
+        private void OnLevelSpawned()
         {
-            _deathPlane.Dead += OnDead;
+            _world = GetComponent<World>();
         }
 
-        private void OnDisable()
+        private void Awake()
         {
-            _deathPlane.Dead -= OnDead;
+            _levelFlow.LevelSpawned += OnLevelSpawned;
+            _deathPlane.Dead += OnDead;
         }
     }
 }

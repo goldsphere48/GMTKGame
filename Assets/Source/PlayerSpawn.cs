@@ -8,6 +8,7 @@ namespace GMTKGame
 {
     [RequireComponent(typeof(PlayerInputHandler))]
     [RequireComponent(typeof(PlayerFreezeController))]
+    [RequireComponent(typeof(Rigidbody))]
     internal class PlayerSpawn : MonoBehaviour
     {
         [SerializeField] private Transform _cubeTransform;
@@ -16,6 +17,7 @@ namespace GMTKGame
         private PlayerInputHandler _playerInputHandler;
         private PlayerFreezeController _playerFreezeController;
         private Transform _transform;
+        private Rigidbody _rigidbody;
 
         private void Awake()
         {
@@ -23,6 +25,7 @@ namespace GMTKGame
             _followPlayerScript = FindObjectOfType<FollowPlayer>();
             _playerInputHandler = GetComponent<PlayerInputHandler>();
             _playerFreezeController = GetComponent<PlayerFreezeController>();
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -38,6 +41,7 @@ namespace GMTKGame
         public void Spawn(Checkpoint checkpoint)
         {
             enabled = true;
+            _rigidbody.velocity = Vector3.zero;
             _playerFreezeController.Freeze();
             _followPlayerScript.enabled = false;
             _playerInputHandler.enabled = false;
