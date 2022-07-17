@@ -1,4 +1,5 @@
-﻿using Assets.Source;
+﻿using System.Collections;
+using Assets.Source;
 using UnityEngine;
 
 namespace GMTKGame
@@ -7,21 +8,29 @@ namespace GMTKGame
     {
         private AudioSource _audio;
         private UserWallet _userWallet;
+        private MeshRenderer _meshRenderer;
 
         private void Awake()
         {
             _audio = GetComponent<AudioSource>();
             _userWallet = FindObjectOfType<UserWallet>();
+            _meshRenderer = GetComponent<MeshRenderer>();
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.GetComponent<Player>() != null)
             {
-                _audio.Play();
-                // _userWallet.AddCoin();
-                Destroy(gameObject);
+                StartCoroutine(PlaySound());
             }
+        }
+
+        private IEnumerator PlaySound()
+        {
+            _audio.Play();
+            _meshRenderer.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            Destroy(gameObject);
         }
     }
 }
