@@ -10,7 +10,7 @@ namespace GMTKGame.Menu
 
         private void Awake()
         {
-            _timeViewText.text = $"{_worldData.Time / 60} / {_worldData.Time % 60}";
+            _timeViewText.text = $"{(_worldData.Time / 60):00} / {(_worldData.Time % 60):00}";
         }
     }
 }

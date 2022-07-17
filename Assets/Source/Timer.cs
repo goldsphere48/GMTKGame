@@ -38,7 +38,7 @@ namespace GMTKGame
                     _time += 1;
                     int minutes = (int)(_time / 60);
                     int seconds = (int)(_time % 60);
-                    _timerText.text = $"{minutes}:{seconds}";
+                    _timerText.text = $"{minutes:00}:{seconds:00}";
                 }
             }
         }
