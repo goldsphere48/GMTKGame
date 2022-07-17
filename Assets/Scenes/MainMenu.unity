@@ -2143,8 +2143,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'He has very hard time with directions, so he would very much appreciate
-    your help!
+  m_text: 'Numbers on the sides of the dice are commands for Dice King to move in
+    that direction.
 
 
     Remember, opposite sides always sums up to 7!'
@@ -5471,8 +5471,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Once upon a time the Dice King went for an adventure, but little did he
-    know that this road is full of dangers and booby traps (especially booby traps)...
+  m_text: "Join the Dice King in his journey across flying realms! \n\nBut his majesty
+    is kinda bad with directions and needs your help!\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c587f203558e8904290006c6e8534024, type: 2}
   m_sharedMaterial: {fileID: -8528358323286139193, guid: c587f203558e8904290006c6e8534024, type: 2}
