@@ -75,7 +75,7 @@ namespace GMTKGame
             var currentIndex = _worlds.IndexOf(_currentWorld);
             if (currentIndex + 1 < _worlds.Count)
             {
-                return _worlds[currentIndex];
+                return _worlds[currentIndex + 1];
             }
 
             return null;
