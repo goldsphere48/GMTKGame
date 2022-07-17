@@ -7,7 +7,7 @@ namespace GMTKGame
     internal class Checkpoint : MonoBehaviour
     {
         [SerializeField] private int _id;
-        private WorldData _worldData;
+        private World _world;
 
         public int Id => _id;
 
@@ -15,8 +15,7 @@ namespace GMTKGame
 
         private void Awake()
         {
-            var world = FindObjectOfType<World>();
-            _worldData = world.WorldData;
+            _world = FindObjectOfType<World>();
         }
 
         private void OnTriggerEnter(Collider collision)
@@ -29,9 +28,9 @@ namespace GMTKGame
 
         private void UseCheckpoint()
         {
-            if (_worldData.LastCheckpointId < Id)
+            if (_world.LastCheckpointId < Id)
             {
-                _worldData.LastCheckpointId = Id;
+                _world.LastCheckpointId = Id;
                 CheckpointEntered?.Invoke();
                 Debug.Log("Checkpoint!");
             }
