@@ -390,7 +390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596590281}
   m_LocalRotation: {x: 0.31140444, y: 0.45576066, z: -0.17403804, w: 0.8154878}
-  m_LocalPosition: {x: -7.3420653, y: 7.588993, z: -8.069642}
+  m_LocalPosition: {x: -7.4, y: 7.91, z: -7.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,7 +428,7 @@ MonoBehaviour:
     m_Bits: 64
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 1
+  antialiasingMode: 2
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
