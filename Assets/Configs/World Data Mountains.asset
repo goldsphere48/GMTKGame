@@ -18,3 +18,4 @@ MonoBehaviour:
   World: {fileID: 8482215423998313285, guid: 59e5b8fc5f264ee43a32482454d53465, type: 3}
   CoinsCollected: 4
   CoinsTotal: 32
+  Time: 0

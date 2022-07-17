@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: World Data Castle
   m_EditorClassIdentifier: 
   Name: DICEY CASTLE
-  Completed: 1
+  Completed: 0
   Unlocked: 1
   World: {fileID: 8482215423998313285, guid: d83dd701b1d06f244bdb8d511e7a9a66, type: 3}
   CoinsCollected: 32
   CoinsTotal: 20
+  Time: 0
