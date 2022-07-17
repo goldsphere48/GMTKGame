@@ -20,7 +20,6 @@ namespace Assets.Source
                     return 5;
                 case KeyCode.Keypad6:
                     return 6;
-
             }
             var first = (int)KeyCode.Alpha1;
             return (int)key - first + 1;
