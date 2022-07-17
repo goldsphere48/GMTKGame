@@ -129,7 +129,6 @@ namespace GMTKGame
             if (!_isDead)
             {
                 transform.position = targetPosition;
-                Debug.Log("Hui");
             }
 
             _currentDirection = Direction.None;
