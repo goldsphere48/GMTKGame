@@ -16,5 +16,4 @@ namespace GMTKGame
             _button.enabled = _worldData.Unlocked;
         }
     }
-
 }

@@ -60,6 +60,8 @@ namespace GMTKGame
         private void AlignRotation()
         {
             _transform.eulerAngles = Vector3.zero;
+            _cubeTransform.eulerAngles = Vector3.zero;
+            _rigidbody.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         public void RandomRotate()

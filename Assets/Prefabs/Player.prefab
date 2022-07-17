@@ -1692,6 +1692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def4c6546d19d8a419185090e3bb8bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _throwForce: 500
+  _levelFlow: {fileID: 0}
+  _mainMenuPlayer: 0
 --- !u!114 &7262944832085393872
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,8 +13,7 @@ namespace GMTKGame
 
         private void OnDead()
         {
-            _followPlayer.LookAt(_world.LastSavedCheckpoint.transform);
-            _playerSpawn.Spawn(_world.LastSavedCheckpoint);
+            RespawnPlayer();
         }
 
         private void OnLevelSpawned()
@@ -26,6 +25,12 @@ namespace GMTKGame
         {
             _levelFlow.LevelSpawned += OnLevelSpawned;
             _deathPlane.Dead += OnDead;
+        }
+
+        public void RespawnPlayer()
+        {
+            _followPlayer.LookAt(_world.LastSavedCheckpoint.transform);
+            _playerSpawn.Spawn(_world.LastSavedCheckpoint);
         }
     }
 }
