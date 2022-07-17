@@ -46,7 +46,7 @@ namespace GMTKGame
             {
                 if (Input.GetKeyDown(keyDirection.Key))
                 {
-                    KeyPressed?.Invoke(keyDirection.Value, _playerPositionHandler.DirectionsToNumber[keyDirection.Value]);
+                    // KeyPressed?.Invoke(keyDirection.Value, _playerPositionHandler.DirectionsToNumber[keyDirection.Value]);
                 }
             }
             foreach (var validKeyCode in _validKeyCodes)
