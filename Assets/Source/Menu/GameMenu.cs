@@ -18,6 +18,9 @@ namespace GMTKGame
         [SerializeField] private GameObject _topRight;
         [SerializeField] private GameObject _bottomLeft;
 
+        [SerializeField] private PlayerInputHandler _playerInputHandler;
+        [SerializeField] private Timer _timer;
+
         private bool _isEscape;
 
         private bool _isInMenu;
@@ -47,6 +50,8 @@ namespace GMTKGame
 
         private void OnResumeButtonClick()
         {
+            _timer.enabled = true;
+            _playerInputHandler.enabled = true;
             _pauseCanvas.SetActive(false);
             _pauseMenu.SetActive(false);
             _isInMenu = false;
@@ -56,6 +61,8 @@ namespace GMTKGame
         {
             if (Input.GetKeyDown(KeyCode.Escape) && !_isInMenu)
             {
+                _timer.enabled = false;
+                _playerInputHandler.enabled = false;
                 _isInMenu = true;
                 _pauseCanvas.SetActive(true);
                 _pauseMenu.SetActive(true);
