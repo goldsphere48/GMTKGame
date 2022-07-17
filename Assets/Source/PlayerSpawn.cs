@@ -29,7 +29,6 @@ namespace GMTKGame
         {
             if (enabled)
             {
-                _followPlayerScript.CalculateDistanceToPlayer();
                 _followPlayerScript.enabled = true;
                 _playerInputHandler.enabled = true;
                 enabled = false;
@@ -38,6 +37,7 @@ namespace GMTKGame
 
         public void Spawn(Checkpoint checkpoint)
         {
+            enabled = true;
             _playerFreezeController.Freeze();
             _followPlayerScript.enabled = false;
             _playerInputHandler.enabled = false;
