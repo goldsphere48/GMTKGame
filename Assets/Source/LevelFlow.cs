@@ -14,6 +14,7 @@ namespace GMTKGame
         public event Action LevelSpawned;
 
         public IReadOnlyList<WorldData> Worlds => _worlds;
+        public WorldData CurrentWorld => _currentWorld;
 
         private void Awake()
         {

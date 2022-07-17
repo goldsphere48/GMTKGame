@@ -15,12 +15,14 @@ namespace GMTKGame
             _audio = GetComponent<AudioSource>();
             _userWallet = FindObjectOfType<UserWallet>();
             _meshRenderer = GetComponent<MeshRenderer>();
+            _userWallet = FindObjectOfType<UserWallet>();
         }
 
         private void OnTriggerEnter(Collider collider)
         {
             if (collider.gameObject.GetComponent<Player>() != null)
             {
+                _userWallet.AddCoin();
                 StartCoroutine(PlaySound());
             }
         }

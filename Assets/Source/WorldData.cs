@@ -9,5 +9,7 @@ namespace GMTKGame
         public bool Completed;
         public bool Unlocked;
         public GameObject World;
+        public int CoinsCollected;
+        public int CoinsTotal;
     }
 }
