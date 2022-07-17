@@ -72,7 +72,13 @@ namespace GMTKGame
 
         private WorldData GetNextLevel()
         {
-            return _worlds.Find(w => !w.Completed);
+            var currentIndex = _worlds.IndexOf(_currentWorld);
+            if (currentIndex + 1 < _worlds.Count)
+            {
+                return _worlds[currentIndex];
+            }
+
+            return null;
         }
     }
 }
