@@ -58,10 +58,6 @@ namespace GMTKGame
                 {
                     Hitted?.Invoke();
                 }
-            } 
-            else if (direction == Direction.Up)
-            {
-                Jumped?.Invoke(number);
             }
         }
 

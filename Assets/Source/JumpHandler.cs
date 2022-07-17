@@ -20,6 +20,8 @@ namespace Assets.Source
         private PlayerMovement _playerMovement;
         private Rigidbody _rigidbody;
 
+        public event Action<int> Jumped; 
+
         private void Awake()
         {
             _playerInputHandler = GetComponent<PlayerInputHandler>();
@@ -50,6 +52,7 @@ namespace Assets.Source
         {
             if (!IsPlayerInAir() && _playerMovement.CurrentDirection == Direction.None)
             {
+                Jumped?.Invoke(_playerPositionHandler.HighEdge.EdgeNumber);
                 _rigidbody.AddForce(new Vector3(0, _playerMovementConfig.JumpForce, 0));
             }
         }

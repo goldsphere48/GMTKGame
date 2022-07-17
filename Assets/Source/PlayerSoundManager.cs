@@ -11,10 +11,12 @@ namespace Assets.Source
         [SerializeField] private AudioSource _hitSound;
 
         private PlayerMovement _playerMovement;
+        private JumpHandler _jumpHandler;
 
         private void Awake()
         {
             _playerMovement = GetComponent<PlayerMovement>();
+            _jumpHandler = GetComponent<JumpHandler>();
         }
 
         private void OnMove(int number)
@@ -36,7 +38,7 @@ namespace Assets.Source
         private void OnEnable()
         {
             _playerMovement.Move += OnMove;
-            _playerMovement.Jumped += OnJumped;
+            _jumpHandler.Jumped += OnJumped;
             _playerMovement.Hitted += OnHitted;
         }
 
